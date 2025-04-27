@@ -162,8 +162,8 @@
 
   function moveButton() {
     // Get screen size and button size
-    const screenWidth = document.documentElement.clientWidth; // Use clientWidth to handle viewport correctly
-    const screenHeight = document.documentElement.clientHeight; // Use clientHeight for accurate height
+    const screenWidth = window.innerWidth; // Use window.innerWidth for correct screen width
+    const screenHeight = window.innerHeight; // Use window.innerHeight for correct screen height
     const buttonWidth = noBtn.offsetWidth;
     const buttonHeight = noBtn.offsetHeight;
 
@@ -193,7 +193,7 @@
       spread: 90,
       origin: { y: 0.6 }
     });
-    alert('YAY! I knew you would say yes!');
+    alert('YAY! I knew you would say yes!!');
   });
 </script>
 
