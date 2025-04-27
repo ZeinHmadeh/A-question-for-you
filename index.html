@@ -1,127 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Hey… I have a question!</title>
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-<style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  body {
-    font-family: 'Poppins', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: linear-gradient(135deg, #f9a8d4, #a0c4ff);
-    overflow: hidden;
-    flex-direction: column;
-  }
-
-  h1 {
-    font-size: 3em;
-    background: linear-gradient(45deg, #ff6b81, #845ec2);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-align: center;
-    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
-    margin-bottom: 20px;
-    letter-spacing: 2px;
-  }
-
-  .question-box {
-    background-color: white;
-    padding: 50px;
-    border-radius: 15px;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    max-width: 450px;
-    width: 100%;
-    position: relative;
-  }
-
-  #buttons {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-top: 30px;
-    position: relative;
-    height: 100px;
-  }
-
-  button {
-    padding: 15px 30px;
-    font-size: 20px;
-    margin: 15px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-
-  #yesBtn {
-    background-color: #ff6b81;
-    color: white;
-    font-weight: bold;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  }
-
-  #yesBtn:hover {
-    background-color: #ff4757;
-  }
-
-  #noBtn {
-    background-color: #57606f;
-    color: white;
-    font-weight: bold;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    position: absolute;
-    padding: 15px 30px;
-    font-size: 18px;
-    transition: all 0.3s ease;
-  }
-
-  /* Floating hearts background */
-  .hearts {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    z-index: -1;
-  }
-
-  .hearts span {
-    position: absolute;
-    display: block;
-    width: 20px;
-    height: 20px;
-    background: url('https://i.postimg.cc/5t5BNZnC/heart.png') no-repeat center;
-    background-size: contain;
-    animation: float 8s linear infinite;
-    opacity: 0.7;
-  }
-
-  @keyframes float {
-    0% {
-      transform: translateY(100vh) rotate(0deg);
-      opacity: 0;
+  <meta charset="UTF-8">
+  <title>Hey… I have a question!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    50% {
-      opacity: 1;
-    }
-    100% {
-      transform: translateY(-10vh) rotate(360deg);
-      opacity: 0;
-    }
-  }
 
-</style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #f9a8d4, #a0c4ff);
+      overflow: hidden;
+      flex-direction: column;
+    }
+
+    h1 {
+      font-size: 3em;
+      background: linear-gradient(45deg, #ff6b81, #845ec2);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-align: center;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+      margin-bottom: 20px;
+      letter-spacing: 2px;
+    }
+
+    .question-box {
+      background-color: white;
+      padding: 50px;
+      border-radius: 15px;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      max-width: 450px;
+      width: 100%;
+      position: relative;
+    }
+
+    #buttons {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-top: 30px;
+      position: relative;
+      height: 100px;
+    }
+
+    button {
+      padding: 15px 30px;
+      font-size: 20px;
+      margin: 15px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    #yesBtn {
+      background-color: #ff6b81;
+      color: white;
+      font-weight: bold;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    #yesBtn:hover {
+      background-color: #ff4757;
+    }
+
+    #noBtn {
+      background-color: #57606f;
+      color: white;
+      font-weight: bold;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      position: absolute;
+      padding: 15px 30px;
+      font-size: 18px;
+      transition: all 0.3s ease;
+    }
+
+    /* Floating hearts background */
+    .hearts {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .hearts span {
+      position: absolute;
+      display: block;
+      width: 20px;
+      height: 20px;
+      background: url('https://i.postimg.cc/5t5BNZnC/heart.png') no-repeat center;
+      background-size: contain;
+      animation: float 8s linear infinite;
+      opacity: 0.7;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+  </style>
 </head>
 <body>
 
@@ -160,43 +160,49 @@
   noBtn.style.left = `${initialLeft}px`;
   noBtn.style.top = `${initialTop}px`;
 
+  // Get the current dimensions of the viewport
+  function getViewportDimensions() {
+    return {
+      width: window.innerWidth,
+      height: window.innerHeight
+    };
+  }
+
   function moveButton() {
-    // Get the viewport size and the button size
-    const viewportWidth = window.innerWidth; // Get the width of the viewport
-    const viewportHeight = window.innerHeight; // Get the height of the viewport
+    // Get viewport and button sizes
+    const { width, height } = getViewportDimensions();
+    const buttonWidth = noBtn.offsetWidth;
+    const buttonHeight = noBtn.offsetHeight;
 
-    const buttonWidth = noBtn.offsetWidth; // Get the width of the No button
-    const buttonHeight = noBtn.offsetHeight; // Get the height of the No button
-
-    // Calculate a random position within the bounds of the screen
-    let x = Math.random() * (viewportWidth - buttonWidth - 30); // Ensure 30px margin
-    let y = Math.random() * (viewportHeight - buttonHeight - 30);
+    // Generate random positions for the button
+    let x = Math.random() * (width - buttonWidth - 30); // 30px margin
+    let y = Math.random() * (height - buttonHeight - 30);
 
     // Ensure the button stays inside the screen bounds
-    x = Math.max(0, Math.min(x, viewportWidth - buttonWidth - 30));
-    y = Math.max(0, Math.min(y, viewportHeight - buttonHeight - 30));
+    x = Math.max(0, Math.min(x, width - buttonWidth - 30));
+    y = Math.max(0, Math.min(y, height - buttonHeight - 30));
 
-    // Set the new position of the No button
+    // Apply the new position to the No button
     noBtn.style.left = `${x}px`;
     noBtn.style.top = `${y}px`;
 
-    // Play the pop sound when the button moves
+    // Play sound when the button moves
     popSound.play();
   }
 
-  // Event listeners to move the No button on hover or tap
+  // Move the No button on hover (desktop), click, and touch (mobile)
   noBtn.addEventListener('mouseover', moveButton);
   noBtn.addEventListener('touchstart', moveButton);
   noBtn.addEventListener('click', moveButton);
 
-  // Confetti on "Yes" click
+  // Confetti and action when Yes button is clicked
   yesBtn.addEventListener('click', () => {
     confetti({
       particleCount: 200,
       spread: 90,
       origin: { y: 0.6 }
     });
-    alert('YAY! I knew you would say yes!!');
+    alert('YAY! I knew you would say yes!');
   });
 </script>
 
