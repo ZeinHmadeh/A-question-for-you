@@ -153,22 +153,21 @@
   const yesBtn = document.getElementById('yesBtn');
   const popSound = document.getElementById('popSound');
 
-  // Define multiple fixed positions for the No button
+  // Fixed positions (manually defined)
   const positions = [
-    { x: 50, y: 100 },
-    { x: 200, y: 250 },
-    { x: 400, y: 350 },
-    { x: 600, y: 500 },
-    { x: 800, y: 650 },
-    { x: 200, y: 800 }
+    { x: 50, y: 100 },    // Top-left
+    { x: 300, y: 150 },   // Top-center
+    { x: 550, y: 100 },   // Top-right
+    { x: 50, y: 400 },    // Bottom-left
+    { x: 300, y: 500 },   // Bottom-center
+    { x: 550, y: 400 }    // Bottom-right
   ];
 
   let currentPos = 0; // Start with the first position
 
   // Function to update the position of the No button
   function moveButton() {
-    // Get the current position from the positions array
-    let pos = positions[currentPos];
+    const pos = positions[currentPos]; // Get current position
 
     // Get the current screen width and height
     const screenWidth = window.innerWidth;
@@ -182,10 +181,10 @@
     noBtn.style.left = `${x}px`;
     noBtn.style.top = `${y}px`;
 
-    // Play sound when button moves
+    // Play the sound when button moves
     popSound.play();
 
-    // Update the current position in the array (circular)
+    // Move to the next position in the array (looping back if at the end)
     currentPos = (currentPos + 1) % positions.length;
   }
 
