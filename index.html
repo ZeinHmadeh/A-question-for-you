@@ -161,28 +161,28 @@
   noBtn.style.top = `${initialTop}px`;
 
   function moveButton() {
-    // Get screen size and button size
-    const screenWidth = window.innerWidth; // Use window.innerWidth for correct screen width
-    const screenHeight = window.innerHeight; // Use window.innerHeight for correct screen height
+    // Get screen size and button size using clientHeight and clientWidth
+    const screenWidth = document.documentElement.clientWidth; 
+    const screenHeight = document.documentElement.clientHeight;
     const buttonWidth = noBtn.offsetWidth;
     const buttonHeight = noBtn.offsetHeight;
 
-    // Ensure button stays within visible area and move it randomly
-    let x = Math.random() * (screenWidth - buttonWidth - 30); // 30px margin
+    // Calculate random position within the screen bounds
+    let x = Math.random() * (screenWidth - buttonWidth - 30); // Ensure 30px margin
     let y = Math.random() * (screenHeight - buttonHeight - 30);
 
-    // Ensure x and y are within the screen bounds using getBoundingClientRect() to adjust position
-    const buttonRect = noBtn.getBoundingClientRect();
-    x = Math.max(30, Math.min(x, screenWidth - buttonRect.width - 30));
-    y = Math.max(30, Math.min(y, screenHeight - buttonRect.height - 30));
+    // Ensure no part of the button is outside the viewport
+    x = Math.max(0, Math.min(x, screenWidth - buttonWidth - 30));
+    y = Math.max(0, Math.min(y, screenHeight - buttonHeight - 30));
 
+    // Apply the new position
     noBtn.style.left = `${x}px`;
     noBtn.style.top = `${y}px`;
 
     popSound.play(); // Play sound when button moves
   }
 
-  // Move on hover (desktop) and tap/click (mobile)
+  // Move button on hover (desktop) and touchstart (mobile)
   noBtn.addEventListener('mouseover', moveButton);
   noBtn.addEventListener('touchstart', moveButton);
   noBtn.addEventListener('click', moveButton);
