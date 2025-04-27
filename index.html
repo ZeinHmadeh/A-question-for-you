@@ -153,14 +153,7 @@
   const yesBtn = document.getElementById('yesBtn');
   const popSound = document.getElementById('popSound');
 
-  // Initial position of No button below Yes button
-  const yesButton = document.getElementById("yesBtn");
-  const initialLeft = yesButton.offsetLeft;
-  const initialTop = yesButton.offsetTop + yesButton.offsetHeight + 20; // Position No button 20px below Yes button
-  noBtn.style.left = `${initialLeft}px`;
-  noBtn.style.top = `${initialTop}px`;
-
-  // Get the current dimensions of the viewport
+  // Function to get the viewport dimensions
   function getViewportDimensions() {
     return {
       width: window.innerWidth,
@@ -168,35 +161,40 @@
     };
   }
 
-  // Adjust the No button's position
-  function moveButton() {
-    // Get the viewport size and the button size
-    const { width, height } = getViewportDimensions();
-    const buttonWidth = noBtn.offsetWidth;
-    const buttonHeight = noBtn.offsetHeight;
+  // Set initial position of No button below Yes button
+  const yesButton = document.getElementById("yesBtn");
+  const initialLeft = yesButton.offsetLeft;
+  const initialTop = yesButton.offsetTop + yesButton.offsetHeight + 20; // 20px below Yes button
+  noBtn.style.left = `${initialLeft}px`;
+  noBtn.style.top = `${initialTop}px`;
 
-    // Generate random positions for the button
+  function moveButton() {
+    const { width, height } = getViewportDimensions(); // Get current viewport size
+    const buttonWidth = noBtn.offsetWidth; // Get No button width
+    const buttonHeight = noBtn.offsetHeight; // Get No button height
+
+    // Calculate random position for No button within screen bounds
     let x = Math.random() * (width - buttonWidth - 30); // 30px margin
     let y = Math.random() * (height - buttonHeight - 30);
 
-    // Ensure the button stays inside the screen bounds
+    // Ensure the No button stays within bounds (clamping)
     x = Math.max(0, Math.min(x, width - buttonWidth - 30));
     y = Math.max(0, Math.min(y, height - buttonHeight - 30));
 
-    // Apply the new position to the No button
+    // Update position of the No button
     noBtn.style.left = `${x}px`;
     noBtn.style.top = `${y}px`;
 
-    // Play sound when the button moves
+    // Play sound when button moves
     popSound.play();
   }
 
-  // Use requestAnimationFrame for smooth animations
+  // Use requestAnimationFrame for smoother animation when moving button
   function updatePosition() {
     requestAnimationFrame(moveButton);
   }
 
-  // Move the No button on hover (desktop), click, and touch (mobile)
+  // Move No button on hover (desktop), click, and touch (mobile)
   noBtn.addEventListener('mouseover', updatePosition);
   noBtn.addEventListener('touchstart', updatePosition);
   noBtn.addEventListener('click', updatePosition);
