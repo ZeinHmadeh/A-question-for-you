@@ -153,14 +153,14 @@
   const yesBtn = document.getElementById('yesBtn');
   const popSound = document.getElementById('popSound');
 
-  // Manually defined positions to avoid overlap with Yes button
+  // Fixed positions, ensuring no overlap with the Yes button
   const positions = [
     { x: 50, y: 150 },    // Top-left (not overlapping Yes button)
-    { x: 300, y: 200 },   // Top-center
+    { x: 300, y: 250 },   // Top-center (avoids the Yes button)
     { x: 550, y: 150 },   // Top-right
-    { x: 50, y: 400 },    // Bottom-left
-    { x: 300, y: 500 },   // Bottom-center
-    { x: 550, y: 400 }    // Bottom-right
+    { x: 50, y: 450 },    // Bottom-left
+    { x: 300, y: 550 },   // Bottom-center
+    { x: 550, y: 450 }    // Bottom-right
   ];
 
   let currentPos = 0; // Start with the first position
