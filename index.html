@@ -155,43 +155,37 @@
 
   // Define multiple fixed positions for the No button
   const positions = [
-    { x: 30, y: 100 },
-    { x: 300, y: 200 },
-    { x: 500, y: 150 },
-    { x: 700, y: 400 },
-    { x: 200, y: 600 },
-    { x: 400, y: 700 }
+    { x: 50, y: 100 },
+    { x: 200, y: 250 },
+    { x: 400, y: 350 },
+    { x: 600, y: 500 },
+    { x: 800, y: 650 },
+    { x: 200, y: 800 }
   ];
 
   let currentPos = 0; // Start with the first position
 
-  // Function to get the current dimensions of the viewport
-  function getViewportDimensions() {
-    return {
-      width: window.innerWidth,
-      height: window.innerHeight
-    };
-  }
-
   // Function to update the position of the No button
   function moveButton() {
-    const { width, height } = getViewportDimensions();
-    
-    // Get the current position
+    // Get the current position from the positions array
     let pos = positions[currentPos];
 
-    // Make sure the button is within the bounds of the screen
-    let x = Math.min(Math.max(0, pos.x), width - noBtn.offsetWidth - 30);
-    let y = Math.min(Math.max(0, pos.y), height - noBtn.offsetHeight - 30);
+    // Get the current screen width and height
+    const screenWidth = window.innerWidth;
+    const screenHeight = window.innerHeight;
+
+    // Ensure the button stays within the bounds of the screen
+    let x = Math.min(Math.max(0, pos.x), screenWidth - noBtn.offsetWidth - 30); // Ensure 30px margin
+    let y = Math.min(Math.max(0, pos.y), screenHeight - noBtn.offsetHeight - 30); // Ensure 30px margin
 
     // Apply the new position to the No button
     noBtn.style.left = `${x}px`;
     noBtn.style.top = `${y}px`;
 
-    // Play the sound when button moves
+    // Play sound when button moves
     popSound.play();
 
-    // Update to the next position in the array
+    // Update the current position in the array (circular)
     currentPos = (currentPos + 1) % positions.length;
   }
 
