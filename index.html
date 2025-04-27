@@ -46,6 +46,7 @@
 
   #buttons {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     margin-top: 30px;
     position: relative;
@@ -155,7 +156,7 @@
   // Initial position of No button below Yes button
   const yesButton = document.getElementById("yesBtn");
   const initialLeft = yesButton.offsetLeft;
-  const initialTop = yesButton.offsetTop + 80; // Position No button 80px below Yes button
+  const initialTop = yesButton.offsetTop + yesButton.offsetHeight + 20; // Position No button 20px below Yes button
   noBtn.style.left = `${initialLeft}px`;
   noBtn.style.top = `${initialTop}px`;
 
