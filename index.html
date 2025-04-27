@@ -153,11 +153,15 @@
   const yesBtn = document.getElementById('yesBtn');
   const popSound = document.getElementById('popSound');
 
+  // Set initial position of the No button below the Yes button
+  noBtn.style.left = "50px";
+  noBtn.style.top = "200px"; // Ensuring it does not overlap with Yes button at start
+
   // Fixed positions, ensuring no overlap with the Yes button
   const positions = [
-    { x: 50, y: 250 },    // Top-left (below Yes button)
-    { x: 300, y: 250 },   // Top-center (far from Yes button)
-    { x: 550, y: 250 },   // Top-right
+    { x: 50, y: 150 },    // Top-left (below Yes button)
+    { x: 300, y: 250 },   // Top-center (avoids the Yes button)
+    { x: 550, y: 150 },   // Top-right
     { x: 50, y: 450 },    // Bottom-left
     { x: 300, y: 550 },   // Bottom-center
     { x: 550, y: 450 }    // Bottom-right
