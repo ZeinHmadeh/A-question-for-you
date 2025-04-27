@@ -168,8 +168,9 @@
     };
   }
 
+  // Adjust the No button's position
   function moveButton() {
-    // Get viewport and button sizes
+    // Get the viewport size and the button size
     const { width, height } = getViewportDimensions();
     const buttonWidth = noBtn.offsetWidth;
     const buttonHeight = noBtn.offsetHeight;
@@ -190,10 +191,15 @@
     popSound.play();
   }
 
+  // Use requestAnimationFrame for smooth animations
+  function updatePosition() {
+    requestAnimationFrame(moveButton);
+  }
+
   // Move the No button on hover (desktop), click, and touch (mobile)
-  noBtn.addEventListener('mouseover', moveButton);
-  noBtn.addEventListener('touchstart', moveButton);
-  noBtn.addEventListener('click', moveButton);
+  noBtn.addEventListener('mouseover', updatePosition);
+  noBtn.addEventListener('touchstart', updatePosition);
+  noBtn.addEventListener('click', updatePosition);
 
   // Confetti and action when Yes button is clicked
   yesBtn.addEventListener('click', () => {
