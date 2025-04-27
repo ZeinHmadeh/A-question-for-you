@@ -161,28 +161,30 @@
   noBtn.style.top = `${initialTop}px`;
 
   function moveButton() {
-    // Get screen size and button size using clientHeight and clientWidth
-    const screenWidth = document.documentElement.clientWidth; 
-    const screenHeight = document.documentElement.clientHeight;
-    const buttonWidth = noBtn.offsetWidth;
-    const buttonHeight = noBtn.offsetHeight;
+    // Get the viewport size and the button size
+    const viewportWidth = window.innerWidth; // Get the width of the viewport
+    const viewportHeight = window.innerHeight; // Get the height of the viewport
 
-    // Calculate random position within the screen bounds
-    let x = Math.random() * (screenWidth - buttonWidth - 30); // Ensure 30px margin
-    let y = Math.random() * (screenHeight - buttonHeight - 30);
+    const buttonWidth = noBtn.offsetWidth; // Get the width of the No button
+    const buttonHeight = noBtn.offsetHeight; // Get the height of the No button
 
-    // Ensure no part of the button is outside the viewport
-    x = Math.max(0, Math.min(x, screenWidth - buttonWidth - 30));
-    y = Math.max(0, Math.min(y, screenHeight - buttonHeight - 30));
+    // Calculate a random position within the bounds of the screen
+    let x = Math.random() * (viewportWidth - buttonWidth - 30); // Ensure 30px margin
+    let y = Math.random() * (viewportHeight - buttonHeight - 30);
 
-    // Apply the new position
+    // Ensure the button stays inside the screen bounds
+    x = Math.max(0, Math.min(x, viewportWidth - buttonWidth - 30));
+    y = Math.max(0, Math.min(y, viewportHeight - buttonHeight - 30));
+
+    // Set the new position of the No button
     noBtn.style.left = `${x}px`;
     noBtn.style.top = `${y}px`;
 
-    popSound.play(); // Play sound when button moves
+    // Play the pop sound when the button moves
+    popSound.play();
   }
 
-  // Move button on hover (desktop) and touchstart (mobile)
+  // Event listeners to move the No button on hover or tap
   noBtn.addEventListener('mouseover', moveButton);
   noBtn.addEventListener('touchstart', moveButton);
   noBtn.addEventListener('click', moveButton);
@@ -194,7 +196,7 @@
       spread: 90,
       origin: { y: 0.6 }
     });
-    alert('YAY! I knew you would say yes!');
+    alert('YAY! I knew you would say yes!!');
   });
 </script>
 
