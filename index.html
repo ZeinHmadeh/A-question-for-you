@@ -162,8 +162,8 @@
 
   function moveButton() {
     // Get screen size and button size
-    const screenWidth = window.innerWidth;
-    const screenHeight = window.innerHeight;
+    const screenWidth = document.documentElement.clientWidth; // Use clientWidth to handle viewport correctly
+    const screenHeight = document.documentElement.clientHeight; // Use clientHeight for accurate height
     const buttonWidth = noBtn.offsetWidth;
     const buttonHeight = noBtn.offsetHeight;
 
