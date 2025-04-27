@@ -168,8 +168,12 @@
     const buttonHeight = noBtn.offsetHeight;
 
     // Ensure button stays within visible area and move it randomly
-    const x = Math.random() * (screenWidth - buttonWidth - 30); // 30px margin
-    const y = Math.random() * (screenHeight - buttonHeight - 30);
+    let x = Math.random() * (screenWidth - buttonWidth - 30); // 30px margin
+    let y = Math.random() * (screenHeight - buttonHeight - 30);
+
+    // Ensure x and y are within the screen bounds
+    x = Math.max(0, Math.min(x, screenWidth - buttonWidth - 30));
+    y = Math.max(0, Math.min(y, screenHeight - buttonHeight - 30));
 
     noBtn.style.left = `${x}px`;
     noBtn.style.top = `${y}px`;
